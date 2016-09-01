@@ -1,0 +1,143 @@
+{
+  "name": "kdoh/z-index",
+  "version": "0.1.4",
+  "libraries": {
+    "xv": "^1.1.19"
+  },
+  "title": "Z-index",
+  "branch": "",
+  "style": {
+    "name": "Default",
+    "componentSet": {
+      "nav": "nav/BasicNav",
+      "header": "header/BannerHeader",
+      "article": "article/BasicArticle",
+      "footer": "footer/BasicFooter"
+    },
+    "fontFamily": "-apple-system, BlinkMacSystemFont, sans-serif",
+    "fontWeight": 400,
+    "bold": 600,
+    "lineHeight": 1.5,
+    "typeScale": [
+      72,
+      48,
+      24,
+      20,
+      16,
+      14,
+      12
+    ],
+    "monospace": "Menlo, monospace",
+    "heading": {
+      "fontFamily": null,
+      "fontStyle": null,
+      "fontWeight": 600,
+      "lineHeight": 1.25,
+      "textTransform": null,
+      "letterSpacing": null,
+      "h0": {},
+      "h1": {},
+      "h2": {},
+      "h3": {},
+      "h4": {},
+      "h5": {},
+      "h6": {}
+    },
+    "alternativeText": {},
+    "space": [
+      0,
+      8,
+      16,
+      32,
+      48,
+      64,
+      96
+    ],
+    "layout": {
+      "maxWidth": 1024,
+      "centered": false
+    },
+    "colors": {
+      "text": "#111",
+      "background": "#fff",
+      "primary": "#08e",
+      "secondary": "#059",
+      "highlight": "#e08",
+      "border": "#ddd",
+      "muted": "#eee"
+    },
+    "border": {
+      "width": 1,
+      "radius": 2
+    },
+    "link": {},
+    "button": {
+      "hover": {
+        "boxShadow": "inset 0 0 0 999px rgba(0, 0, 0, .125)"
+      }
+    },
+    "input": {},
+    "body": {
+      "margin": 0
+    },
+    "breakpoints": {
+      "xs": "@media screen and (max-width:40em)",
+      "sm": "@media screen and (min-width:40em)",
+      "md": "@media screen and (min-width:52em)",
+      "lg": "@media screen and (min-width:64em)"
+    }
+  },
+  "content": [
+    {
+      "component": "nav",
+      "links": [
+        {
+          "href": "https://github.com/kdoh/z-index",
+          "text": "GitHub"
+        },
+        {
+          "href": "https://npmjs.com/package/z-index",
+          "text": "npm"
+        }
+      ]
+    },
+    {
+      "component": "header",
+      "heading": "z-index",
+      "subhead": "Dead simple CSS z-index utilities.",
+      "children": [
+        {
+          "component": "ui/TweetButton",
+          "text": "z-index: Dead simple CSS z-index utilities.",
+          "url": null
+        },
+        {
+          "component": "ui/GithubButton",
+          "user": "kdoh",
+          "repo": "z-index"
+        }
+      ],
+      "text": "v0.0.1"
+    },
+    {
+      "component": "article",
+      "metadata": {
+        "source": "github.readme"
+      },
+      "html": "\n<p>A tiny and dead simple set of CSS z-index utilities.</p>\n<h2>why</h2>\n<p>The z space in CSS can easily become arbitrarily increased over time as new\ncomponents are added. You&apos;ve probably seen something like this before in CSS\nsource code...</p>\n<pre><span class=\"hljs-comment\">/* need this to go above the other thing */</span>\n<span class=\"hljs-selector-class\">.og-component</span> { <span class=\"hljs-attribute\">z-index</span>: <span class=\"hljs-number\">9</span>; }</pre><p>and some time later...</p>\n<pre><span class=\"hljs-comment\">/* this needs to go above og-component */</span>\n<span class=\"hljs-selector-class\">.new-component</span> { <span class=\"hljs-attribute\">z-index</span>: <span class=\"hljs-number\">10</span>; }\n<span class=\"hljs-selector-class\">.newer-component</span> { <span class=\"hljs-attribute\">z-index</span>: <span class=\"hljs-number\">11</span>; }</pre><p>In practice we generally don&apos;t need more than a few layers at any one time\neven across fairly complex apps.</p>\n<p>By adopting a small range of values that mimics the (inverse) of the HTML heading\nspec, that we can apply directly to any html element, we prevent the need to\ndeclare z-indexes on the fly, and keep the mental model of &quot;layers&quot; easy to\nunderstand while developing.</p>\n<pre><span class=\"hljs-selector-class\">.z1</span> { <span class=\"hljs-attribute\">z-index</span>: <span class=\"hljs-number\">1</span>; }\n<span class=\"hljs-selector-class\">.z2</span> { <span class=\"hljs-attribute\">z-index</span>: <span class=\"hljs-number\">2</span>; }\n<span class=\"hljs-selector-class\">.z3</span> { <span class=\"hljs-attribute\">z-index</span>: <span class=\"hljs-number\">3</span>; }\n<span class=\"hljs-selector-class\">.z4</span> { <span class=\"hljs-attribute\">z-index</span>: <span class=\"hljs-number\">4</span>; }\n<span class=\"hljs-selector-class\">.z5</span> { <span class=\"hljs-attribute\">z-index</span>: <span class=\"hljs-number\">5</span>; }\n<span class=\"hljs-selector-class\">.z6</span> { <span class=\"hljs-attribute\">z-index</span>: <span class=\"hljs-number\">6</span>; }</pre><p>Other than the 6 basic indexes, a <code>zF</code> class is included that forces a very high\nz-index in the event that another component or library is being overzealous\nwith its z-index values and you just can&apos;t even.</p>\n<pre><span class=\"hljs-selector-class\">.zF</span> { <span class=\"hljs-attribute\">z-index</span>: <span class=\"hljs-number\">999</span>; } <span class=\"hljs-comment\">/* break glass in case of emergency */</span></pre><h2>usage</h2>\n<pre><span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">main</span>&gt;</span>\n    <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">section</span> <span class=\"hljs-attr\">class</span>=<span class=\"hljs-string\">&quot;z1&quot;</span>&gt;</span>I&apos;m the lowest<span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">section</span>&gt;</span>\n    <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">section</span> <span class=\"hljs-attr\">class</span>=<span class=\"hljs-string\">&quot;z2&quot;</span>&gt;</span>I&apos;m a little bit higher.<span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">section</span>&gt;</span>\n    <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">section</span> <span class=\"hljs-attr\">class</span>=<span class=\"hljs-string\">&quot;z3&quot;</span>&gt;</span>Chilling here in the middle, kinda hungry, could use a sandwich.<span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">section</span>&gt;</span>\n    <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">section</span> <span class=\"hljs-attr\">class</span>=<span class=\"hljs-string\">&quot;z4&quot;</span>&gt;</span>Just a bit higher.<span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">section</span>&gt;</span>\n    <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">section</span> <span class=\"hljs-attr\">class</span>=<span class=\"hljs-string\">&quot;z5&quot;</span>&gt;</span>I&apos;m assistant to the highest z-index<span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">section</span>&gt;</span>\n    <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">section</span> <span class=\"hljs-attr\">class</span>=<span class=\"hljs-string\">&quot;z6&quot;</span>&gt;</span>Look at me all the way up here.<span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">section</span>&gt;</span>\n\n    <span class=\"hljs-tag\">&lt;<span class=\"hljs-name\">section</span> <span class=\"hljs-attr\">class</span>=<span class=\"hljs-string\">&quot;zF&quot;</span>&gt;</span>Buahaha and you thought z6 was high.<span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">section</span>&gt;</span>\n<span class=\"hljs-tag\">&lt;/<span class=\"hljs-name\">main</span>&gt;</span></pre>"
+    },
+    {
+      "component": "footer",
+      "links": [
+        {
+          "href": "https://github.com/kdoh/z-index",
+          "text": "GitHub"
+        },
+        {
+          "href": "https://github.com/kdoh",
+          "text": "kdoh"
+        }
+      ]
+    }
+  ]
+}
