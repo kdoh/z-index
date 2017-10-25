@@ -1,4 +1,6 @@
 # z-index
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/kdoh/z-index.svg)](https://greenkeeper.io/)
 A tiny and dead simple set of CSS z-index utilities.
 
 ## why
